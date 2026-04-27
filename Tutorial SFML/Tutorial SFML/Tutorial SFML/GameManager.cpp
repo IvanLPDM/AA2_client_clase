@@ -98,7 +98,7 @@ void GameManager::UpdateState(GameState newState)
     switch (newState) 
     {
         case GameState::SplashScreen:
-            _client->ConnectToBootstrapServer("127.0.0.1", 50000);
+            _client->ConnectToBootstrapServer("10.40.2.27", 50000);
             std::cout << "[Client] Opening Splashscreen" << std::endl;
             _splashMenu = new SplashScreenMenu();
             break;
@@ -115,7 +115,7 @@ void GameManager::UpdateState(GameState newState)
             // Only reconnect to bootstrap when not coming from the ranking screen
             if (_currentState != GameState::RankingMenu)
             {
-                _client->ConnectToBootstrapServer("127.0.0.1", 50000);
+                _client->ConnectToBootstrapServer("10.40.2.27", 50000);
                 if (_client->HasPendingGameResult())
                     _client->SendStoredGameResult();
             }
